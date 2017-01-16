@@ -1,0 +1,30 @@
+{
+  "name": "kompo-pubsub",
+  "version": "1.0.0",
+  "description": "A simple pubsub library which can be used standalone or together with Kompo the component library",
+  "main": "./src/kompo-pubsub.js",
+  "repository": {
+    "url": "https://github.com/rubenhazelaar/kompo-pubsub",
+    "type": "git"
+  },
+  "author": "Ruben Hazelaar <ruben.hazelaar@gmail.com>",
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:umd && npm run examples:build",
+    "build:cjs": "./node_modules/.bin/babel ./src -d lib",
+    "build:umd": "./node_modules/.bin/webpack --entry ./src/kompo-pubsub.js --output-filename ./umd/kompo-pubsub.min.js",
+    "examples:build": "./node_modules/.bin/webpack --entry ./examples/index.js --output-filename ./examples/index.min.js",
+    "examples:watch": "./node_modules/.bin/webpack -w --entry ./examples/index.js --output-filename ./examples/index.min.js",
+    "prepublish": "npm run build"
+  },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-babili": "^0.0.9",
+    "babili": "^0.0.9",
+    "babili-webpack-plugin": "^0.0.7",
+    "webpack": "2.2.0-rc.5"
+  }
+}
